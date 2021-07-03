@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Card from './components/Card';
 import Clock from './components/Clock';
 import Person from './components/Person';
 import Post from './components/Post';
@@ -19,7 +20,12 @@ function App() {
         <Clock />
         <Person />
         <Sidebar post={post} />
-        <Post post={post} totalComments={15}/>
+        
+        <Card title={"Card"}>
+          <Post post={post} totalComments={12} />
+        </Card>
+
+
       </header>
     </div>
   );
