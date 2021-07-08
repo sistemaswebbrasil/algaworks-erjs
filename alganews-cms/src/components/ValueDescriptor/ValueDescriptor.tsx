@@ -8,7 +8,7 @@ export interface ValueDescriptorProps {
 }
 
 export default function ValueDescriptor (props: ValueDescriptorProps) {
-  return <VD.Wrapper>
+  return <VD.Wrapper color={props.color}>    
     <span className="Description">{ props.description }</span>
     <div>
       {
