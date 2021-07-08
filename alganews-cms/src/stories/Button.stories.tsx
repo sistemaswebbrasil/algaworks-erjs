@@ -28,3 +28,10 @@ Text.args = {
   variant: 'text',
   label: 'Button',
 };
+
+export const Disable = Template.bind({});
+Disable.args = {
+  variant: 'primary',
+  disabled: true,
+  label: 'Button'
+};
