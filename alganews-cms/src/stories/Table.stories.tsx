@@ -1,13 +1,145 @@
-import { Story, Meta } from '@storybook/react';
+import { mdiOpenInNew } from '@mdi/js'
+import Icon from '@mdi/react'
+import { Meta } from '@storybook/react'
+import { useMemo } from 'react'
+import { Column, useTable } from 'react-table'
 import Table from '../components/Table/Table'
 
 export default {
   title: 'Example/Table',
   component: Table,
-} as Meta;
+} as Meta
 
-const Template: Story<{}> = (args) => <Table {...args} />;
+type Data = {
+  preview: React.ReactNode
+  col1: string
+  col2: string
+  actions: string
+}
 
-export const Default = Template.bind({})
-Default.args = {
+export function Default() {
+  const data = useMemo<Data[]>(
+    () => [
+      {
+        col1: 'Hello',
+        col2: 'World',
+        actions: 'ações',
+        preview: <Icon size="14px" color="#09f" path={mdiOpenInNew} />,
+      },
+      {
+        col1: 'react-table',
+        col2: 'rocks',
+        actions: 'ações',
+        preview: <Icon size="14px" color="#09f" path={mdiOpenInNew} />,
+      },
+      {
+        col1: 'whatever',
+        col2: 'you want',
+        actions: 'ações',
+        preview: <Icon size="14px" color="#09f" path={mdiOpenInNew} />,
+      },
+      {
+        col1: 'batata',
+        col2: 'banana',
+        actions: 'ações',
+        preview: <Icon size="14px" color="#09f" path={mdiOpenInNew} />,
+      },
+    ],
+    []
+  )
+
+  const columns = useMemo<Column<Data>[]>(
+    () => [
+      {
+        Header: '',
+        accessor: 'preview', // accessor is the "key" in the data
+      },
+      {
+        Header: 'Column 1',
+        accessor: 'col1',
+        width: 320,
+        Cell: (row) => <div style={{ textAlign: 'right' }}>{row.value}</div>,
+      },
+      {
+        Header: 'Column 2',
+        accessor: 'col2',
+        Cell: (row) => <div style={{ textAlign: 'center' }}>{row.value}</div>,
+      },
+      {
+        Header: 'Ações',
+        accessor: 'actions',
+      },
+    ],
+    []
+  )
+
+  const insntace = useTable<Data>({ data, columns })
+
+  return <Table<Data> instance={insntace} />
+}
+
+export function NoData() {
+  const data = useMemo<Data[]>(() => [], [])
+
+  const columns = useMemo<Column<Data>[]>(
+    () => [
+      {
+        Header: '',
+        accessor: 'preview', // accessor is the "key" in the data
+      },
+      {
+        Header: 'Column 1',
+        accessor: 'col1',
+        width: 320,
+        Cell: (row) => <div style={{ textAlign: 'right' }}>{row.value}</div>,
+      },
+      {
+        Header: 'Column 2',
+        accessor: 'col2',
+        Cell: (row) => <div style={{ textAlign: 'center' }}>{row.value}</div>,
+      },
+      {
+        Header: 'Ações',
+        accessor: 'actions',
+      },
+    ],
+    []
+  )
+
+  const insntace = useTable<Data>({ data, columns })
+
+  return <Table<Data> instance={insntace} />
+}
+
+type ContactData = {    
+    name: string
+    email: string    
+  }
+
+
+export function NewData() {
+  const data = useMemo<ContactData[]>(() => [
+    {
+        name: 'Adriano',
+        email: 'adriano.faria@outlook.com.br'        
+      }
+  ], [])
+
+  const columns = useMemo<Column<ContactData>[]>(
+    () => [
+      {
+        Header: 'Name',
+        accessor: 'name',
+      },
+      {
+        Header: 'Email',
+        accessor: 'email',
+      },      
+    ],
+    []
+  )
+
+  const insntace = useTable<ContactData>({ data, columns })
+
+  return <Table<ContactData> instance={insntace} />
 }
