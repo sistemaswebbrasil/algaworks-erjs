@@ -1,57 +1,72 @@
+import { transparentize } from 'polished';
 import { Line } from 'react-chartjs-2';
+import styled from 'styled-components';
+import NoData from '../NoData/NoData';
+import Heading from '../Typography/Heading';
 
-const data = {
-  labels: ['1', '2', '3', '4', '5', '6'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      fill: false,
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgba(255, 99, 132, 0.2)',
-      yAxisID: 'y-axis-1',
-    },
-    {
-      label: '# of No Votes',
-      data: [1, 2, 1, 1, 2, 2],
-      fill: false,
-      backgroundColor: 'rgb(54, 162, 235)',
-      borderColor: 'rgba(54, 162, 235, 0.2)',
-      yAxisID: 'y-axis-2',
-    },
-  ],
-};
-
-const options = {
+const options: Chart.ChartOptions = {
+  maintainAspectRatio: true,
+  elements: {
+    line: {
+      tension: 0
+    }
+  },
+  legend: {
+    display: true,
+    position: 'bottom',
+    align: 'center',
+    labels: {
+      usePointStyle: true
+    }
+  },
   scales: {
+    xAxes: [
+      {
+        display: true,
+        gridLines: {
+          display: false
+        }
+      }
+    ],
     yAxes: [
       {
         type: 'linear',
-        display: true,
+        display: false,
         position: 'left',
-        id: 'y-axis-1',
-      },
-      {
-        type: 'linear',
-        display: true,
-        position: 'right',
-        id: 'y-axis-2',
-        gridLines: {
-          drawOnArea: false,
-        },
-      },
+        id: 'cashflow',
+      }
     ],
   },
 };
 
-export interface ChartProps {}
-
-export default function Chart () {
-  return <div>
-    <Line
-      type="line"
-      data={data}
-      options={options}
-    />
-  </div>
+export interface ChartProps {
+  data: Chart.ChartData
+  title: string
 }
+
+export default function Chart ({ data, title }: ChartProps) {
+  return <ChartWrapper style={{ width: 700 }}>
+    <div style={{ marginBottom: 16 }}>
+      <Heading level={3}>
+        {title}
+      </Heading>
+    </div>
+    {
+      data
+        ? <Line
+            type="line"
+            height={139}
+            width={600}
+            data={data}
+            options={options}
+          />
+        : <NoData height={139} />
+    }
+  </ChartWrapper>
+}
+
+const ChartWrapper = styled.div`
+  text-align: center;
+  border: 1px solid ${transparentize(0.9, '#274060')};
+  padding: 20px;
+`
