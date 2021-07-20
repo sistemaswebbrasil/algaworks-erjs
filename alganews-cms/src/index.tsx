@@ -9,19 +9,14 @@ import Contact from './views/Contact.view';
 import Home from './views/Home.view';
 import UserView from './views/User.view';
 import CalcView from './views/Calc.view';
+import NavBar from './components/NavBar';
 
 ReactDOM.render(
   <React.StrictMode>
     <div>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/contato">Contato</a></li>
-          <li><a href="/usuarios">User</a></li>
-        </ul>
-      </nav>
       <BrowserRouter>
-      <Switch>
+        <NavBar />
+        <Switch>
           <Route path={'/'} exact component={Home} />
           <Route path={'/contato'} exact component={Contact} />
           <Route path={'/usuario/:userId'} component={UserView} />
