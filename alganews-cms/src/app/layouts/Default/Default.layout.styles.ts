@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   width: 1140px;
@@ -17,7 +17,7 @@ export const Header = styled.header`
   height: 64px;
 `
 
-export const Main = styled.div`
+export const Main = styled.main`
   display: grid;
   grid-template-columns: 214px 680px 214px;
   gap: 16px;
@@ -25,13 +25,13 @@ export const Main = styled.div`
 
 export const Navigation = styled.nav`
   display: flex;
-  padding-right: 32px;  
+  padding-right: 32px;
   justify-content: flex-end;
 `
 
 export const Aside = styled.aside``
 
-export const FeatureContent = styled.section`
+export const FeaturedContent = styled.section`
   display: flex;
   flex-direction: column;
   gap: 32px;
