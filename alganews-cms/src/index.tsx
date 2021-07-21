@@ -13,9 +13,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/editores' exact component={EditorsListView} />
-        <Route path="/posts/criar" exact component={PostCreateView}/>
+        <Route path="/" exact component={Home} />
+        <Route path="/editores" exact component={EditorsListView} />
+        <Route path="/posts/criar" exact component={PostCreateView} />
         <Route component={NotFound404} />
       </Switch>
     </BrowserRouter>
