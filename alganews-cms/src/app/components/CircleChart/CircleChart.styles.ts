@@ -24,7 +24,7 @@ export const Circle = styled.circle`
 `
 
 export const CircleBG = styled.circle.attrs({
-  fill: '#fff',
+  fill: 'none',
 })``
 
 export const Percentage = styled.span`
@@ -38,9 +38,7 @@ export const Percentage = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  color: #274060;
-
+  color: ${p => p.theme };
   font-weight: 900;
   font-size: 1.2em;
 `
