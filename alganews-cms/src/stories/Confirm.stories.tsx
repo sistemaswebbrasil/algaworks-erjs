@@ -4,13 +4,15 @@ import Confirm, { ConfirmProps } from '../app/components/Confirm/Confirm';
 export default {
   title: 'Example/Confirm',
   component: Confirm,
+  argTypes: {
+    onConfirm: { action: 'confirm' },
+    onCancel: { action: 'cancel' },
+  },
 } as Meta;
 
 const Template: Story<ConfirmProps> = (args) => <Confirm {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {
-  title: 'Deseja realmente sair?',
-  yesText: 'Sim',
-  noText: 'Não'
+  title: 'Você tem certeza?',
 }
