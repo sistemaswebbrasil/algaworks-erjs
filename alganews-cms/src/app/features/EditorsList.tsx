@@ -1,21 +1,18 @@
-import React from 'react'
-import styled from 'styled-components'
-import Profile from '../components/Profile'
+import styled from "styled-components";
+import Profile from "../components/Profile";
 
-export default function EditorsList() {
-  return (
-    <EditorListWrapper>
-        <Profile name="Adriano" description="Administrador há 10 anos                           " />
-        <Profile name="Michele Cristina" description="Gerente há 5 anos" />
-        <Profile name="Beatriz" description="Editor há 1 ano" />
-        <Profile name="João" description="Usuário desde ontem" />
-        <Profile name="Maria Darc" description="Editor desde sempre" />
-    </EditorListWrapper>
-  )
+export default function EditorsList () {
+  return <EditorsListWrapper>
+    <Profile editorId={1} name="Daniel Bonifacio" description="editor há 8 anos" />
+    <Profile editorId={2} name="João Frango" description="editor há 2 anos" />
+    <Profile editorId={3} name="Alex Teixeira" description="editor há 2 anos" />
+    <Profile editorId={4} name="Camila Vasconcellos" description="editora há 6 anos" />
+    <Profile editorId={5} name="Gabriel Freitas" description="editor há 2 meses" />
+  </EditorsListWrapper>
 }
 
-const EditorListWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:24px;    
+const EditorsListWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 `
