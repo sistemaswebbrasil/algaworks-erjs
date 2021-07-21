@@ -1,5 +1,2 @@
-import {TagInputProps} from './TagInput'
-
-
 export { default } from './TagInput'
-export type {TagInputProps}
+export type { TagInputProps } from './TagInput'
