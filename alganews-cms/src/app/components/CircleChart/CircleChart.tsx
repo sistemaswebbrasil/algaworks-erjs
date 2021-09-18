@@ -54,8 +54,8 @@ function CircleChart (props: CircleChartProps) {
           strokeDashoffset={offset}
         />
       </CC.Svg>
-      <CC.Percentage theme={THEME}>
-        { props.progress }%
+      <CC.Percentage style={{ color: THEME }}>
+        { Math.ceil(props.progress) }%
       </CC.Percentage>
     </CC.SvgWrapper>
     {
