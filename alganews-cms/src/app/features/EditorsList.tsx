@@ -18,7 +18,7 @@ export default function EditorsList () {
   return <EditorsListWrapper>
     {
       editors.map(editor => {
-        return <Profile
+        return <Profile key={editor.id}
           editorId={editor.id}
           name={editor.name}
           description={getEditorDescription (new Date(editor.createdAt))}
