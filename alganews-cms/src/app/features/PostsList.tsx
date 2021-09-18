@@ -22,7 +22,7 @@ export default function PostList () {
     PostService
       .getAllPosts({
         page,
-        size: 7,
+        size: 1,
         showAll: true,
         sort: ['createdAt', 'desc']
       })
