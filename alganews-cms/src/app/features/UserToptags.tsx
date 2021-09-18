@@ -15,8 +15,8 @@ export default function UserTopTags () {
 
   return <UserTopTagsWrapper>
     {
-      topTags.map((tag, i) => {
-        return <CircleChart
+      topTags.map((tag, i)  => {
+        return <CircleChart key={i}
           progress={tag.percentage}
           caption={tag.tagName}
           theme={i === 0 ? 'primary' : 'default'}
