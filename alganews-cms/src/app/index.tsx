@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import log from "sistemaswebbrasil-sdk";
 import info from "../core/utils/info";
 import EditorProfileView from "./views/EditorProfile.view";
 import EditorsListView from "./views/EditorsList.view";
@@ -9,6 +10,7 @@ import PostCreateView from "./views/PostCreate.view";
 import PostEditView from "./views/PostEdit.view";
 // olá , teste
 export default function App () {
+  log()
   useEffect(() => {
     window.onunhandledrejection = function (error: PromiseRejectionEvent) {
       console.log(error)
