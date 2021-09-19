@@ -6,9 +6,11 @@ import { useEffect } from "react"
 import { useMemo } from "react"
 import Skeleton from "react-loading-skeleton"
 import { Column, usePagination, useTable } from "react-table"
+import { PostService } from "sistemaswebbrasil-sdk"
+import { Post } from "sistemaswebbrasil-sdk/dist/@types"
 import modal from "../../core/utils/modal"
-import { Post } from "../../sdk/@types"
-import PostService from "../../sdk/services/Post.service"
+
+
 import Loading from "../components/Loading"
 import PostTitleAnchor from "../components/PostTitleAnchor"
 import Table from "../components/Table/Table"

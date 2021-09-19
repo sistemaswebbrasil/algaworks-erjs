@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import Skeleton from "react-loading-skeleton"
+import { MetricService } from "sistemaswebbrasil-sdk"
 import withBoundary from "../../core/hoc/withBoundary"
 import transformEditorMonthlyEaningsIntoChartJs from "../../core/utils/transformEditorMonthlyEarningsIntoChartJs"
-import MetricService from "../../sdk/services/Metric.service"
+
 import Chart, { ChartProps } from "../components/Chart/Chart"
 function UserPerformance () {
   const [editorEarnings, setEditorEarings] = useState<ChartProps['data']>()

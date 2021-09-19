@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
+import { MetricService } from "sistemaswebbrasil-sdk";
+import { Metric } from "sistemaswebbrasil-sdk/dist/@types";
 import styled from "styled-components";
-import { Metric } from "../../sdk/@types";
-import MetricService from "../../sdk/services/Metric.service";
 import CircleChart from "../components/CircleChart";
 
 export default function UserTopTags () {
