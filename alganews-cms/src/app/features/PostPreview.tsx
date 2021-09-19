@@ -10,20 +10,17 @@ import Loading from '../components/Loading';
 import info from '../../core/utils/info';
 import confirm from '../../core/utils/confirm';
 import modal from '../../core/utils/modal';
-import { useHistory } from "react-router-dom";
 
 interface PostPreviewProps {
   postId: number
 }
 
 function PostPreview (props: PostPreviewProps) {
-  const history = useHistory()
-
   const [post, setPost] = useState<Post.Detailed>()
   const [loading, setLoading] = useState(false)
 
   async function publishPost() {
-    await PostService.publishExisingPost(props.postId)
+    await PostService.publishExistingPost(props.postId)
     info({
       title: 'Post publicado',
       description: 'Você publicou o post com sucesso'
