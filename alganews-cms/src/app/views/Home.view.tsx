@@ -60,7 +60,7 @@ export default function Home() {
     <DefaultLayout>
       <button
         onClick={() => {
-          dispatch(fetchPosts({ page: 2 }));
+          dispatch(fetchPosts({ page: 0 }));
         }}
       >
         disparar acao
