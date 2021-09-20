@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import usePageTitle from "../../core/hooks/usePageTitle";
 import selectPaginatedPosts from "../../core/selectors/selectPaginatedPosts";
-import { addPost } from "../../core/store/Post.slice";
+import { addPost, fetchPosts } from "../../core/store/Post.slice";
 import ErrorBoundary from "../components/ErrorBoundary";
 import PostList from "../features/PostsList";
 import UserEarnings from "../features/UserEarnings";
@@ -60,7 +60,7 @@ export default function Home() {
     <DefaultLayout>
       <button
         onClick={() => {
-          dispatch(addPost(fakePost));
+          dispatch(fetchPosts({ page: 2 }));
         }}
       >
         disparar acao
@@ -68,6 +68,7 @@ export default function Home() {
       {paginatedPosts?.map((post) => (
         <li>{post.title}</li>
       ))}
+      <hr />
       <div
         style={{
           display: "grid",
