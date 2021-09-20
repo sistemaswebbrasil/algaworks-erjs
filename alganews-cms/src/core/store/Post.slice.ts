@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Post } from "sistemaswebbrasil-sdk";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { Post } from 'sistemaswebbrasil-sdk'
 
 interface PostSliceState {
-  paginated?: Post.Paginated;
+  paginated?: Post.Paginated
 }
 
 const initialState: PostSliceState = {
@@ -13,12 +13,16 @@ const initialState: PostSliceState = {
     totalPages: 1,
     content: [],
   },
-};
+}
 
 const postSlice = createSlice({
-  name: "post",
+  name: 'post',
   initialState,
-  reducers: {},
-});
+  reducers: {
+    addPost(state, action: PayloadAction<Post.Summary>) {
+      state.paginated?.content?.push(action.payload)
+    },
+  },
+})
 
-export const postReducer = postSlice.reducer;
+export const postReducer = postSlice.reducer
