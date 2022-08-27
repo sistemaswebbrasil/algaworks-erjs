@@ -5,8 +5,8 @@ import {
   isFulfilled,
   isPending,
   isRejected,
-} from '@reduxjs/toolkit'
-import { Post, PostService } from 'sistemaswebbrasil-sdk'
+} from "@reduxjs/toolkit";
+import { Post, PostService } from "danielbonifacio-sdk";
 
 interface PostSliceState {
   paginated?: Post.Paginated;

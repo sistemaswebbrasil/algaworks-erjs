@@ -110,9 +110,9 @@ export function Default () {
     []
   )
 
-  const insntace = useTable<Post>({ data, columns })
+  const instance = useTable<Post>({ data, columns })
 
-  return <Table<Post> instance={insntace} />
+  return <Table<Post> instance={instance} />
 }
 
 export function WithoutData () {
@@ -160,7 +160,7 @@ export function WithoutData () {
     []
   )
 
-  const insntace = useTable<Post>({ data, columns })
+  const instance = useTable<Post>({ data, columns })
 
-  return <Table<Post> instance={insntace} />
+  return <Table<Post> instance={instance} />
 }

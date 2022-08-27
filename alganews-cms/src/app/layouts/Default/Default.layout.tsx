@@ -34,8 +34,8 @@ function DefaultLayout (props: DefaultLayoutProps) {
                   description: 'Você será redirecionado para a página de login'
                 })
                 console.log('executado')
-              }
-              
+              },
+              onCancel: () => window.alert('laranja'),
             })
           }}
         />

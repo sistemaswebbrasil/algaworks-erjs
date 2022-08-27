@@ -7,6 +7,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+
   body {
     font-family: 'Lato', sans-serif;
     background-color: #F3F8FA;
@@ -15,5 +16,12 @@ export default createGlobalStyle`
 
   .confirm-overlay {
     background-color: ${transparentize(0.2, '#274060')};
-  }  
+  }
+  .info-overlay {
+    background-color: ${transparentize(0.2, '#F3F8FA')};
+  }
+  .modal-overlay {
+    background-color: ${transparentize(0.2, '#F3F8FA')};
+    backdrop-filter: blur(5px);
+  }
 `

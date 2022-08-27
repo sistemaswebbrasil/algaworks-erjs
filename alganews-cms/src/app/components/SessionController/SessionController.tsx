@@ -1,4 +1,3 @@
-
 import Button from '../Button/Button'
 import * as SC from './SessionController.styles'
 

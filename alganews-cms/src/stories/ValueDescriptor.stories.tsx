@@ -11,9 +11,7 @@ const Template: Story<ValueDescriptorProps> = (args) => <ValueDescriptor {...arg
 export const Default = Template.bind({})
 Default.args = {
   description: 'Ganhos na semana',
-  value: 560322.02,
-  color: 'default',
-  isCurrency: false
+  value: 560322.02
 }
 
 export const DefaultCurrency = Template.bind({})

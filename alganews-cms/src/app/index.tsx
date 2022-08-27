@@ -7,8 +7,8 @@ import Home from "./views/Home.view";
 import NotFound404 from "./views/NotFound404.view";
 import PostCreateView from "./views/PostCreate.view";
 import PostEditView from "./views/PostEdit.view";
-// olá , teste
-export default function App () {  
+
+export default function App () {
   useEffect(() => {
     window.onunhandledrejection = function (error: PromiseRejectionEvent) {
       console.log(error)

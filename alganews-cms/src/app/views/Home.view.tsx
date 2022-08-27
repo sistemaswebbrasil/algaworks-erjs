@@ -1,33 +1,28 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import usePageTitle from "../../core/hooks/usePageTitle";
-import selectPostsCounter from "../../core/selectors/selectPostsCounter";
-import { increment } from "../../core/store/Post.slice";
+import usePosts from "../../core/hooks/usePosts";
 import ErrorBoundary from "../components/ErrorBoundary";
 import PostList from "../features/PostsList";
 import UserEarnings from "../features/UserEarnings";
 import UserPerformance from "../features/UserPerformance";
-import UserTopTags from "../features/UserToptags";
+import UserTopTags from "../features/UserTopTags";
 import DefaultLayout from "../layouts/Default";
 
 export default function Home() {
   usePageTitle("Home");
-  const dispatch = useDispatch();
-  const counter = useSelector(selectPostsCounter);
+  const { paginatedPosts, loading, fetchPosts } = usePosts();
 
-  useEffect(() => {}, [dispatch]);
+  useEffect(() => {
+    fetchPosts({ page: 1 });
+  }, [fetchPosts]);
 
   return (
     <DefaultLayout>
-      <button
-        onClick={() => {
-          dispatch(increment());
-        }}
-      >
-        disparar ação
-      </button>
-      {counter}
+      {loading ? "carregando" : "finalizado"}
       <hr />
+      {paginatedPosts?.map((post) => (
+        <li>{post.title}</li>
+      ))}
       <div
         style={{
           display: "grid",

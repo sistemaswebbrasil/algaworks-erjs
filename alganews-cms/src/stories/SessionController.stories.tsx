@@ -8,7 +8,7 @@ export default {
     onLogout: {
       action: 'logout'
     }
-  }  
+  }
 } as Meta;
 
 const Template: Story<SessionControllerProps> = (args) =>
