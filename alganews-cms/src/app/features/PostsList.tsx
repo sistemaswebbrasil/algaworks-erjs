@@ -13,27 +13,19 @@ import Loading from "../components/Loading";
 import PostTitleAnchor from "../components/PostTitleAnchor";
 import Table from "../components/Table/Table";
 import PostPreview from "./PostPreview";
+import usePosts from "../../core/hooks/usePosts";
 
 export default function PostList() {
-  const [posts, setPosts] = useState<Post.Paginated>();
   const [error, setError] = useState<Error>();
   const [page, setPage] = useState(0);
-  const [loading, setLoading] = useState(false);
+
+  const { paginatedPosts, loading, fetchPosts, totalPages } = usePosts();
 
   useEffect(() => {
-    setLoading(true);
-    PostService.getAllPosts({
-      page,
-      size: 7,
-      showAll: true,
-      sort: ["createdAt", "desc"],
-    })
-      .then(setPosts)
-      .catch((error) => setError(new Error(error.message)))
-      .then(() => {
-        setLoading(false);
-      });
-  }, [page]);
+    fetchPosts({ page }).catch((error) => {
+      setError(error);
+    });
+  }, [fetchPosts, page]);
 
   if (error) throw error;
 
@@ -126,16 +118,16 @@ export default function PostList() {
 
   const instance = useTable<Post.Summary>(
     {
-      data: posts?.content || [],
+      data: paginatedPosts || [],
       columns,
       manualPagination: true,
       initialState: { pageIndex: 0 },
-      pageCount: posts?.totalPages,
+      pageCount: totalPages,
     },
     usePagination
   );
 
-  if (!posts)
+  if (!paginatedPosts)
     return (
       <div>
         <Skeleton height={32} />

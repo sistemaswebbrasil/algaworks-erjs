@@ -1,4 +1,4 @@
-import { getEditorDescription } from "danielbonifacio-sdk";
+import { getEditorDescription, User } from "danielbonifacio-sdk";
 import { useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
@@ -23,7 +23,7 @@ export default function EditorsList() {
 
   return (
     <EditorsListWrapper>
-      {editorsList.map((editor) => {
+      {editorsList.map((editor: User.EditorSummary) => {
         return (
           <Profile
             key={editor.id}
