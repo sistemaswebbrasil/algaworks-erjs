@@ -1,6 +1,6 @@
 import { mdiOpenInNew } from "@mdi/js";
 import Icon from "@mdi/react";
-import { Post, PostService } from "danielbonifacio-sdk";
+import { Post } from "danielbonifacio-sdk";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO";
 import { useState } from "react";
